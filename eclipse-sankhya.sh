@@ -21,6 +21,7 @@ cloneIfNotExits(){
     repoDir=$1
     repoUrl=$2
 
+    echo "Cloando $1 : $2"
     if [[ ! -d  $repoDir ]];
     then
         git -C $gitDir clone $repoUrl
