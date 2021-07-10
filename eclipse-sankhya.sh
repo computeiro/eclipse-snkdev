@@ -2,6 +2,7 @@
 
 #gitDir=$HOME/git
 gitDir=/mnt/gaveta/macgyver/git
+containerName=valid-eclipse-sankhya2
 
 apis_repo=https://git.sankhya.com.br/plataforma-w/apis.git
 sankhyaw_repo=https://git.sankhya.com.br/plataforma-w/sankhyaw.git
@@ -11,6 +12,13 @@ Caso você use noutro local informe como arguemnto.
     Ex:
     \$ eclipse-sankhya.sh  '/caminho/para/diretorio/git'
 "
+
+CONTAINER_EXISTS_MSG="O container $containerName já existe.
+Você pode simplesmente inicializa-lo com o comando:
+    docker start $containerName
+Ou, se você dejeja recria-lo, delete o container e execute este script novamente.
+"
+
 
 exitWithMsg(){
     echo -e "$1"
@@ -33,6 +41,10 @@ cloneIfNotExits(){
     fi
 }
 
+if [ ! "$(docker ps -q -f name=<$containerName>)" ]; 
+then
+    exitWithMsg $CONTAINER_EXISTS_MSG
+fi
 
 if [[ ! -d $gitDir ]];
 then
@@ -65,7 +77,7 @@ fi
 xhost + 
 
 docker run \
-    --name valid-eclipse-sankhya2 \
+    --name $containerName \
     --hostname eclipse-snk \
     --user snkdev -e DISPLAY=$DISPLAY \
     -e JAVA_HOME=/home/snkdev/sk-java/sdk/jdk1.8.0_231 \
