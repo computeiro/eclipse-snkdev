@@ -60,6 +60,7 @@ $gitDir/apis
 fi
 
 xhost + 
+
 docker run -it \
     --name valid-eclipse-sankhya2 \
     --hostname eclipse-snk \
@@ -69,4 +70,5 @@ docker run -it \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v $gitDir:/home/snkdev/git \
     -p 8080:8080 \
-    computeiro/snk-eclipse 
+    computeiro/snk-eclipse \
+    /home/snkdev/sk-java/eclipse/eclipse
