@@ -64,7 +64,7 @@ fi
 
 xhost + 
 
-docker run -i \
+docker run -t \
     --name valid-eclipse-sankhya2 \
     --hostname eclipse-snk \
     --user snkdev -e DISPLAY=$DISPLAY \
