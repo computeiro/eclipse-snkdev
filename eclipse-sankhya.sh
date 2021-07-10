@@ -36,12 +36,14 @@ cloneIfNotExits(){
 
 if [[ ! -d $gitDir ]]
 then
-    if [[ -z "$1" || ! -d "$1" ]];
+    
+    if [[ -z "$1" || ! -d "$1" ]]
     then
         exitWithMsg $GIT_DIR_NOT_FOUND
     else
         gitDir="$1";
     fi
+    
 fi
 
 if [[ ! -d "$gitDir/apis" ]] ||  [[ ! -d "$gitDir/sankhyaw" ]];
