@@ -78,12 +78,12 @@ xhost +
 
 docker run \
     --name $containerName \
-    --hostname eclipse-snk \
+    --hostname eclipse-skdev \
     --user snkdev -e DISPLAY=$DISPLAY \
     -e JAVA_HOME=/home/snkdev/sk-java/sdk/jdk1.8.0_231 \
     -v $XAUTHORITY:/tmp/.host_Xauthority:ro \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v $gitDir:/home/snkdev/git \
     -p 8080:8080 \
-    computeiro/snk-eclipse \
+    computeiro/eclipse-skdev \
     /home/snkdev/init-container.sh
