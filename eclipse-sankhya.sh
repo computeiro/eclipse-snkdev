@@ -1,7 +1,10 @@
 #!/bin/bash
 
+#FIXME trazer o valor correto é o abaixo
 #gitDir=$HOME/git
 gitDir=/mnt/gaveta/macgyver/git
+
+#FIXME consertar o nome do container
 containerName=valid-eclipse-sankhya2
 
 apis_repo=https://git.sankhya.com.br/plataforma-w/apis.git
@@ -35,7 +38,7 @@ cloneIfNotExits(){
     fi
 }
 
-if [[ `docker ps -a --format '{{.Names}}' |grep valid-eclipse-sankhya` ]]; 
+if [[ `docker ps -a --format '{{.Names}}' |grep $containerName` ]]; 
 then 
     exitWithMsg "O container $containerName já existe.
 Você pode simplesmente inicializa-lo com o comando:
