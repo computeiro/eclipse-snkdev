@@ -13,12 +13,6 @@ Caso você use noutro local informe como arguemnto.
     \$ eclipse-sankhya.sh  '/caminho/para/diretorio/git'
 "
 
-CONTAINER_EXISTS_MSG="O container $containerName já existe.
-Você pode simplesmente inicializa-lo com o comando:
-    docker start $containerName
-Ou, se você dejeja recria-lo, delete o container e execute este script novamente.
-"
-
 
 exitWithMsg(){
     echo -e "$1"
@@ -43,7 +37,11 @@ cloneIfNotExits(){
 
 if [[ `docker ps -a --format '{{.Names}}' |grep valid-eclipse-sankhya` ]]; 
 then 
-    exitWithMsg $CONTAINER_EXISTS_MSG
+    exitWithMsg "O container $containerName já existe.
+Você pode simplesmente inicializa-lo com o comando:
+    docker start $containerName
+Ou, se você dejeja recria-lo, delete o container e execute este script novamente.
+"
 fi
 
 
@@ -52,7 +50,7 @@ then
     
     if [[ -z "$1" || ! -d "$1" ]];
     then
-        exitWithMsg $GIT_DIR_NOT_FOUND
+        exitWithMsg "$GIT_DIR_NOT_FOUND"
     else
         gitDir="$1";
     fi
@@ -63,8 +61,8 @@ if [[ ! -d "$gitDir/apis" ]] ||  [[ ! -d "$gitDir/sankhyaw" ]];
 then
 
     echo -e "Não encontramos o repositório  'sankhyaw' ou 'apis. Caminhos esperados:'
-$gitDir/sankhyaw
-$gitDir/apis
+ $gitDir/sankhyaw
+ $gitDir/apis
 "
     read -r -p "PODEMOS efetuar o checkout dos projetos? [S/n]" response
     response=${response,,} # tolower
