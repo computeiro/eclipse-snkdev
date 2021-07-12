@@ -41,10 +41,11 @@ cloneIfNotExits(){
     fi
 }
 
-if [ ! "$(docker ps -q -f name=<$containerName>)" ]; 
-then
+if [[ `docker ps -a --format '{{.Names}}' |grep valid-eclipse-sankhya` ]]; 
+then 
     exitWithMsg $CONTAINER_EXISTS_MSG
 fi
+
 
 if [[ ! -d $gitDir ]];
 then
