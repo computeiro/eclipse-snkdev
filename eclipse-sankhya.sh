@@ -1,11 +1,8 @@
 #!/bin/bash
 
-#FIXME trazer o valor correto é o abaixo
-#gitDir=$HOME/git
-gitDir=/mnt/gaveta/macgyver/git
+gitDir=$HOME/git
 
-#FIXME consertar o nome do container
-containerName=valid-eclipse-sankhya2
+containerName=eclipse-skdev
 
 apis_repo=https://git.sankhya.com.br/plataforma-w/apis.git
 sankhyaw_repo=https://git.sankhya.com.br/plataforma-w/sankhyaw.git
@@ -71,6 +68,7 @@ then
     response=${response,,} # tolower
     if [[ $response =~ ^(yes|y|s|sim| ) ]] || [[ -z $response ]]; 
     then
+        echo -e "####### CLONANDO PROJETOS DO GIT... #######"
         cloneIfNotExits "apis" $apis_repo;
         cloneIfNotExits "sankhyaw" $sankhyaw_repo;
     fi
@@ -88,4 +86,4 @@ docker run \
     -v $gitDir:/home/snkdev/git \
     -p 8080:8080 \
     computeiro/snk-eclipse \
-    /home/snkdev/sk-java/eclipse/eclipse
+    /home/snkdev/init-container.sh
