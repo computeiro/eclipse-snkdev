@@ -40,7 +40,7 @@ then
     exitWithMsg "O container $containerName já existe.
 Você pode simplesmente inicializa-lo com o comando:
     docker start $containerName
-Ou, se você dejeja recria-lo, delete o container e execute este script novamente.
+Ou, se você deseja recria-lo, delete o container e execute este script novamente.
 "
 fi
 
