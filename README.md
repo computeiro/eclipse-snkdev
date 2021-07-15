@@ -21,6 +21,6 @@ Tanto na primeira vez em que estamos criando o container (docker run)  quanto na
 
 Você precisará também importar os projetos que precisa para isso basta ir na perpesctiva do Git que ele já o trará o repositório do _sankhyaw_
 
-![Foo](http://www.google.com.au/images/nav_logo7.png)
+![Importe os projetos do Sankhya Om](docs/eclipse_perpectiva_git.png)
 
 Novos repositórios Git poderão ser adicionado no diretório Git que está na sua máquina, lembre-se mapeamos esse diretório como volume do container.
