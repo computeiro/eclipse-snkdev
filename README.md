@@ -1,10 +1,22 @@
-Basta executar o seguinte comando:
+# TL;DR
 
-wget -O - https://raw.githubusercontent.com/computeiro/snk-docker/main/eclipse-sankhya.sh | bash
+Em resumo basta executar o seguinte comando:
 
-Aproveita pra ir pegar um café pois o script vai baixar muita coisa...
+`wget -O - https://raw.githubusercontent.com/computeiro/snk-docker/main/eclipse-sankhya.sh | bash`
 
-O script irá fazer download da imagem Docker e executa-la.
+Vai buscar um café que vai baixar um tanto bom de coisa, daí a pouco abre o Eclipse.
+
+Das próximas, vai ser mais rápido e basta executar o comando:
+
+`xhost +  && docker start eclipse-skdev`
+
+Se você usa Linux Mint, Deepin ou Ubuntu pode instalar um menu para fazer isso:
+
+`wget -O - https://raw.githubusercontent.com/computeiro/snk-docker/main/eclipse-sankhya.sh | bash`
+
+
+
+O script irá fazer download da imagem Docker e executa-la (docker run ...).
 Note que será mapeado como volume o diretório $HOME/git e o container irá enxergar lá como $HOME/git (o user no container é o snkdev). Se não houver dentro deste volume os repositórios _"api_sankhya"_  e _"api_outros"_ os mesmos também será clonados na máquina host antes de inicializar o container.
 
 https://git.sankhya.com.br/plataforma-w/apis.git
