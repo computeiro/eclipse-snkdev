@@ -11,7 +11,7 @@ Nas próximas será mais rápido e a inicialização do Eclipse deverá ser feit
 
 Sugiro que você crie um atalho com esse comando. Para quem usa Linux Mint, Deepin ou Ubuntu, há uma notícia boa,  fizemos esse atalho e pode ser instalado  com o comando:
 
-`wget -O - https://raw.githubusercontent.com/computeiro/eclipse-snkdev/main/cria-atalho-ubuntu.sh | bash`
+`wget -O - https://raw.githubusercontent.com/computeiro/eclipse-snkdev/main/cria-atalho-snkdev-ubuntu.sh |bash`
 
 ![Item de menu Linux Mint](docs/atalho_menu_linuxmint.png)
 
