@@ -7,5 +7,5 @@ then
     sudo mkdir $optDir
 fi
 
-sudo wget -P $optdir  https://raw.githubusercontent.com/computeiro/snk-docker/main/docs/eclipse-icon.xpm
-sudo wget -P /usr/share/applications https://raw.githubusercontent.com/computeiro/snk-docker/main/docs/eclipse-snk.desktop
+sudo wget -P $optdir  https://raw.githubusercontent.com/computeiro/eclipse-snkdev/main//docs/eclipse-icon.xpm
+sudo wget -P /usr/share/applications https://raw.githubusercontent.com/computeiro/eclipse-snkdev/main/eclipse-snkdev.desktop
