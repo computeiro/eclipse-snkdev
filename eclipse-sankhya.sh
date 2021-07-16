@@ -83,6 +83,8 @@ docker run \
     -e JAVA_HOME=/home/snkdev/sk-java/sdk/jdk1.8.0_231 \
     -v $XAUTHORITY:/tmp/.host_Xauthority:ro \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v ~/.git-credentials:/home/snkdev/.git-credentials \
+    -v ~/.gitconfig:/home/snkdev/.gitconfig \
     -v $gitDir:/home/snkdev/git \
     -p 8080:8080 \
     computeiro/eclipse-skdev \
