@@ -1,10 +1,10 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Eclipse Sankhya
-GenericName=Eclipse Sankhya
+Name=Eclipse SkDev
+GenericName=Eclipse SkDev
 Comment=Uma IDE fantástica Dockerizada
-Exec=xhost + && docker start eclipse-skdev
+Exec=bash -c "xhost + && docker start eclipse-skdev"
 Terminal=false
 Icon=/opt/eclipse-snk/eclipse-icon.xpm
 Categories=Development;
