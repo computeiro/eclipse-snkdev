@@ -44,19 +44,6 @@ Ou, se você deseja recria-lo, delete o container e execute este script novament
 "
 fi
 
-
-if [[ ! -d $gitDir ]];
-then
-    
-    if [[ -z "$1" || ! -d "$1" ]];
-    then
-        exitWithMsg "$GIT_DIR_NOT_FOUND"
-    else
-        gitDir="$1";
-    fi
-
-fi
-
 if [[ ! -d "$gitDir/apis" ]] ||  [[ ! -d "$gitDir/sankhyaw" ]];
 then
 
@@ -85,5 +72,5 @@ docker run \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v $gitDir:/home/snkdev/git \
     -p 8080:8080 \
-    computeiro/eclipse-skdev \
+    computeiro/eclipse-skdev:1.0 \
     /home/snkdev/init-container.sh
