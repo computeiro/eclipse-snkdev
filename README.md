@@ -1,40 +1,52 @@
 # TL;DR
 
-Em resumo basta executar o seguinte comando:
+Em resumo basta copiar e colar este comando no seu terminal:
 
-`wget -O - https://raw.githubusercontent.com/computeiro/snk-docker/main/eclipse-sankhya.sh | bash`
+`wget -O - https://raw.githubusercontent.com/computeiro/eclipse-snkdev/main/docker-eclipse-snkdev.sh | bash`
 
-Vai buscar um café que vai baixar um tanto bom de coisa, daí a pouco abre o Eclipse.
+Deve demorar um pouco, mas em breve o Eclipse será lançado.
+Nas próximas será mais rápido e a inicialização do Eclipse deverá ser feita com o comando:
 
-Das próximas, vai ser mais rápido e basta executar o comando:
+`xhost +  && docker start eclipse-snkdev`
 
-`xhost +  && docker start eclipse-skdev`
+Sugiro que você crie um atalho com esse comando. Para quem usa Linux Mint, Deepin ou Ubuntu, há uma notícia boa,  fizemos esse atalho e pode ser instalado  com o comando:
 
-Se você usa Linux Mint, Deepin ou Ubuntu pode instalar um menu para fazer isso:
+`wget -O - https://raw.githubusercontent.com/computeiro/eclipse-snkdev/main/cria-atalho-ubuntu.sh | bash`
 
-`wget -O - https://raw.githubusercontent.com/computeiro/snk-docker/main/eclipse-sankhya.sh | bash`
-
-
-
-O script irá fazer download da imagem Docker e executa-la (docker run ...).
-Note que será mapeado como volume o diretório $HOME/git e o container irá enxergar lá como $HOME/git (o user no container é o snkdev). Se não houver dentro deste volume os repositórios _"api_sankhya"_  e _"api_outros"_ os mesmos também será clonados na máquina host antes de inicializar o container.
-
-https://git.sankhya.com.br/plataforma-w/apis.git
-
-https://git.sankhya.com.br/plataforma-w/sankhyaw.git
+![Item de menu Linux Mint](docs/atalho_menu_linuxmint.png)
 
 
-Após todo o processo o Eclipse será incializado. 
-Se você fechar o Eclipse o container será finalizado. Daqui por diante, a inicialização do Eclipse será bem mais rápida e para isto basta usar o comando:
 
-`xhost +  && docker start eclipse-skdev`
+<br/>
+<br/>
+
+# O QUE JÁ TEM NESSE ECLIPSE
+
+:zap: Tem o FlashBuilder instalado!
+
+:zap: Configuramos os filtros das views "Tasks" e "Problems", desta maneira ela vai exibir, respectivamente, apenas os problemas e as task **//TODO** e **//FIXME** do projeto selecionado.
+
+:zap: Quando inicializa já realiza a obtenção das apis via Maven
+
+:zap: Já vem com as JDK, Flash SDK e GWT SDK configuradas
+
+:zap: Wildfly e JBoss embarcado com todos os "-D" da incialização e pronto pra uso
 
 
-**Observação:**
+# DETALHES 
 
-Tanto na primeira vez em que estamos criando o container (docker run)  quanto nas demais inicializações do container (docker start) a primeira coisa que será feita antes de abrir o Eclipse é a atualização das apis. Por isso, lembre-se de dar um refresh (F5) no _"api_sankhya"_ e _"api_outros"_ 
+O script verificará a existẽncia do diretório **$HOME/git** e o clone dos projetos _"apis"_ e _"sankhyaw"_. Será feito clone dos dois repositórios se necessário. O diretório **$HOME/git** da sua máquina é passado como volume para o container, sendo lá o diretório **/home/snkdev/git**.
 
-Você precisará também importar os projetos que precisa, para isso, basta ir na perpesctiva do Git que ele já o trará o repositório do _sankhyaw_ conforme a imagem abaixo
+Sim, o usuário dentro do container é o **snkdev** e não poderia ser o root por conta da inicialização do Sankhya Om.
+
+Antes do container ser inicializado é essencial rodar o comando `xhost +`, **não se preocupe o script faz isso**, é apenas importante você lembrar que esse comando perde efeito quando você reinicializa sua máquina, ou seja, entre uma parada e inicialização do container o 'xhost +' não é necessário, ao reiniciar a máquina sim. Esse comando está no script assim como todo o "`docker run ...`" necessário para criar o container.
+
+O [docker-eclipse-snkdev.sh]( https://github.com/computeiro/eclipse-skdev/blob/main/docker-eclipse-snkdev.sh "Clique aqui e acesse o docker-eclipse-snkdev.sh aqui neste GitHub") cria o container e inicializa-o a primeira vez, para vocẽ que não é íntimo do Docker a criação é feita com o `docker run...` (veja no script)  o qual já tem um inicialização implícita, porém, se você quer inicializar um container que já está criado você usa o `docker start`. Por isso, nas próximas vezes você for inicializar o seu Eclipse com o comando (colocamos o xhost por garantia): 
+
+`xhost +  && docker start eclipse-snkdev`
+
+Eclipse inicializado, você pode importar os projetos do Sankhya Om que você utiliza e seguir sua rotina de trabalho.
+
 
 ![Importe os projetos do Sankhya Om](docs/eclipse_perpectiva_git.png)
 

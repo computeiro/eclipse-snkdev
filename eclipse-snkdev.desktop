@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Eclipse SnkDev
+GenericName=Eclipse SnkDev
+Comment=Uma IDE fantástica Dockerizada
+Exec=bash -c "xhost + && docker start eclipse-snkdev"
+Terminal=false
+Icon=/opt/eclipse-snk/eclipse-icon.xpm
+Categories=Development;
+StartupNotify=true
+Actions=Window;Document;
