@@ -2,7 +2,7 @@
 
 Em resumo basta copiar e colar este comando no seu terminal:
 
-`wget -O - https://raw.githubusercontent.com/computeiro/eclipse-snkdev/main/docker-eclipse-snkdev.sh | bash`
+`wget -O - https://raw.githubusercontent.com/computeiro/eclipse-snkdev/main/docker-eclipse-snkdev.sh |bash`
 
 Deve demorar um pouco, mas em breve o Eclipse será lançado.
 Nas próximas será mais rápido e a inicialização do Eclipse deverá ser feita com o comando:
