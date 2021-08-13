@@ -62,7 +62,7 @@ fi
 
 xhost + 
 
-docker run \
+docker run -d \
     --name $containerName \
     --hostname eclipse-snkdev \
     --user snkdev -e DISPLAY=$DISPLAY \
